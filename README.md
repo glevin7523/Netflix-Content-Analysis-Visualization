@@ -1,158 +1,95 @@
-📘 README: Netflix Data Cleaning, Analysis and Visualization
-📌 Project Overview
-This project focuses on cleaning, analyzing, and visualizing a Netflix dataset to extract meaningful insights. It involves handling missing data, exploring trends, and creating engaging visualizations using Python libraries like pandas, seaborn, and matplotlib.
+# 🎬 Netflix Data Cleaning, Analysis & Visualization
 
-📂 Dataset
-File Name: netflix1.csv
+> Exploring patterns, genres, and trends in Netflix content using data science.
 
-Contains:
+---
 
-Titles of Netflix content
+## 🧠 Overview
 
-Type (Movie or TV Show)
+This project involves the cleaning, exploration, and visualization of Netflix's content catalog. The aim is to uncover trends in genres, ratings, countries, and content types over time.
 
-Cast, Director, Country
+---
 
-Date added to Netflix
+## 🗂️ Dataset Details
 
-Release year
+- **Source**: Netflix Movies and TV Shows Dataset
+- **Includes**:
+  - Title, Type (Movie/TV Show)
+  - Release year & date added to Netflix
+  - Director, Cast, Country, Duration
+  - Genres and Ratings
 
-Duration
+---
 
-Genre (Category/Listed_in)
+## 🚀 Project Highlights
 
-Description
+- ✅ Cleaned and preprocessed raw Netflix metadata  
+- 📊 Performed exploratory data analysis (EDA)  
+- 📅 Extracted temporal insights (e.g., peak content years)  
+- 🌍 Country-wise content distribution  
+- 🧩 Genre analysis and rating trends  
+- 🔎 Interactive visualizations and filtering  
 
-🛠️ Technologies & Libraries Used
-Python
+---
 
-pandas
+## 📌 Key Insights
 
-numpy
+- The number of **TV Shows has grown significantly** in recent years.
+- The **United States** leads with the most content, but emerging countries like India and the UK follow.
+- Certain genres like **Documentaries and Dramas** dominate the platform.
+- Netflix tends to add more content toward **year-end**, possibly for holiday engagement.
 
-matplotlib
+---
 
-seaborn
+## 📷 Visualizations
 
-WordCloud
+> The notebook includes:
+- Bar plots (content over years, country-wise distribution)
+- Word clouds (popular genres)
+- Pie charts (movie vs TV show ratios)
+- Heatmaps (correlation and null value patterns)
 
-📊 Key Steps & Code Explanation
-✅ 1. Import Libraries
-python
-Copy
-Edit
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-from wordcloud import WordCloud
-Used for data manipulation, visualization, and word cloud generation.
+---
 
-📥 2. Load the Dataset
-python
-Copy
-Edit
-data = pd.read_csv('netflix1.csv')
-print(data.head())
-Loads the Netflix dataset using pandas.read_csv.
+## 🛠️ Technologies Used
 
-🧹 3. Data Cleaning
-Check for missing values:
+- **Python (pandas, numpy)** – Data manipulation  
+- **Matplotlib & Seaborn** – Plotting and analytics  
+- **YData Profiling / Pandas Profiling** – Automated EDA reports  
 
-python
-Copy
-Edit
-print(data.isnull().sum())
-View data types and memory info:
+---
 
-python
-Copy
-Edit
-data.info()
-Drop duplicates:
+## ✅ How to Use
 
-python
-Copy
-Edit
-data.drop_duplicates(inplace=True)
-🧼 4. Handling Null Values
-Fill or drop based on context:
+1. Clone this repository  
+2. Ensure the Netflix dataset (`netflix_titles.csv`) is available  
+3. Run the Jupyter Notebook in any Python environment  
+4. Explore the visual output and embedded insights  
 
-python
-Copy
-Edit
-data['Country'].fillna(data['Country'].mode()[0], inplace=True)
-data.dropna(subset=['Director'], inplace=True)
-🧮 5. Date Conversion
-Convert 'date_added' to datetime:
+---
 
-python
-Copy
-Edit
-data['date_added'] = pd.to_datetime(data['date_added'])
-🔎 6. Exploratory Data Analysis (EDA)
-🟢 Type Distribution
-python
-Copy
-Edit
-sns.countplot(data=data, x='type')
-Shows count of Movies vs TV Shows.
+## 🌟 Future Improvements
 
-🌍 Content by Country
-python
-Copy
-Edit
-top_countries = data['Country'].value_counts().head(10)
-sns.barplot(x=top_countries.values, y=top_countries.index)
-📆 Content Added per Year
-python
-Copy
-Edit
-data['year_added'] = data['date_added'].dt.year
-sns.countplot(data=data, x='year_added')
-⌛ Duration Distribution
-Separate 'duration' values for Movies and TV Shows:
+- Use NLP to analyze movie/series descriptions  
+- Build a Netflix recommendation engine  
+- Integrate with TMDb API for richer metadata  
+- Deploy findings via a Streamlit dashboard  
 
-python
-Copy
-Edit
-data['duration'].value_counts()
-☁️ Word Cloud of Descriptions
-python
-Copy
-Edit
-wordcloud = WordCloud(background_color='black').generate(' '.join(data['description'].dropna()))
-plt.imshow(wordcloud, interpolation='bilinear')
-📌 Insights Derived
-Netflix has more Movies than TV Shows.
+---
 
-Majority of content originates from the United States and India.
+## 👨‍💻 Author
 
-A major influx of content happened around 2019–2020.
+Crafted with curiosity and love for entertainment + data 🎬📊  
+**Glevin Roche** – *Data Analyst | AI Enthusiast*
 
-Most movies have a duration of 90 minutes, while TV shows are commonly 1 season.
+---
 
-▶️ How to Run This Project
-Install Required Libraries
+## 📬 Let's Connect
 
-bash
-Copy
-Edit
-pip install pandas numpy matplotlib seaborn wordcloud
-Download the Dataset
-Make sure netflix1.csv is in the same directory as the notebook.
+- [LinkedIn](https://www.linkedin.com/in/glevin-roche-27b754249/)
+- [GitHub](https://github.com/glevin7523)
+- [Portfolio](https://glevin-portfolio.vercel.app/)
 
-Run the Notebook
-Open in Jupyter Notebook or VS Code and run each cell sequentially.
+---
 
-📁 File Structure
-nginx
-Copy
-Edit
-Netflix Data Cleaning, Analysis and Visualization.ipynb
-netflix1.csv
-README.md
-🧠 Author Notes
-This project is ideal for those learning EDA, data cleaning, and basic visualization in Python.
-
-It can be extended to include genre-based trends, rating analysis, or even recommendation systems
+> ⭐ Star this repository to show support — it helps share more awesome insights!
